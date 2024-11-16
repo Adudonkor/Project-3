@@ -1,6 +1,6 @@
 # Solution - enter your code solution below
 
-        # Initializes the caregiver object with basic attributes
+        # Initializes the caregiver class
 class Caregiver:
     def __init__(self, name, phone, email, pay_rate, hours):
         self.name = name
@@ -18,9 +18,10 @@ class Caregiver:
 #Retrieves the caregiver's availability for a specific date and shift.
     def get_availability(self, date, shift):
 
-        # Look up availability in the dictionary, defaulting to "available"
+        # Look up availability in the dictionary, default is "available"
         status = self.availability.get((date, shift), "available")
-        # Return a formatted string with the date, shift, and availability
+
+        # Return the availability 
         return f"Shift: {shift.capitalize()} on {date} is {status}."
 
 class Shift:
@@ -29,31 +30,8 @@ class Shift:
         self.shift_time = shift_time
         self.caregiver = None
 
-class Schedule:
-    def __init__(self):
-        self.shifts = {}
 
-    def add_shift(self, date, shift_time):
-        shift = Shift(date, shift_time)
-        self.shifts[(date, shift_time)] = shift
 
-    def assign_caregiver(self, date, shift_time, caregiver):
-        shift = self.shifts.get((date, shift_time))
-        if shift:
-            shift.caregiver = caregiver
-            caregiver.hours += 6  # Since each shift is 6 hours
 
-class Scheduler:
-    def __init__(self, caregivers):
-        self.caregivers = caregivers
-        self.schedule = Schedule()
-
-    def auto_assign_shifts(self):
-        # Simple logic to assign caregivers based on availability and preferences
-        for (date, shift_time), shift in self.schedule.shifts.items():
-            for caregiver in self.caregivers:
-                if caregiver.get_availability(date, shift_time) in ["preferred", "available"]:
-                    self.schedule.assign_caregiver(date, shift_time, caregiver)
-                    break
 
 
