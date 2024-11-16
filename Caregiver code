@@ -2,7 +2,7 @@
 
         # Initializes the caregiver object with basic attributes
 class Caregiver:
-    def __init__(self, name, phone, email, pay_rate):
+    def __init__(self, name, phone, email, pay_rate, hours):
         self.name = name
         self.phone = phone
         self.email = email
