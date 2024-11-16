@@ -56,18 +56,4 @@ class Scheduler:
                     self.schedule.assign_caregiver(date, shift_time, caregiver)
                     break
 
-# Create an instance of Caregiver
-caregiver = Caregiver("Jane Doe", "555-555-5555", "jane@example.com", 20.00)
 
-# Check attributes
-print(caregiver.name)         # Output: Jane Doe
-print(caregiver.phone)        # Output: 555-555-5555
-print(caregiver.email)        # Output: jane@example.com
-print(caregiver.pay_rate)     # Output: 20.0
-
-# Call methods to set and check availability
-caregiver.set_availability("2024-11-01", "morning", "preferred")
-print(caregiver.get_availability("2024-11-01", "morning"))  # Output: preferred
-
-# Check for a time not set, expecting the default 'available'
-print(caregiver.get_availability("2024-11-01", "afternoon"))  # Output: available
