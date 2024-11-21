@@ -1,6 +1,3 @@
-#Insert Caregiver Class
-
-#Insert Caregiver Class
 class Caregiver:
     def __init__(self, name, phone, email, pay_rate):
         self.name = name
