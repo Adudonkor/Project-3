@@ -1,3 +1,4 @@
+# CAREGIVER/CAREGIVER AVAILABILITY SECTION
 import random 
 
 class Caregiver:
@@ -7,22 +8,19 @@ class Caregiver:
         self.email = email
         self.pay_rate = pay_rate
         self.hours_worked = 0
-        self.availability = {}
+        self.availability = {}  # Format: {"7:00 AM - 1:00 PM": "available"}
 
     def update_availability(self, shift, status):
         valid_statuses = {"preferred", "available", "unavailable"}
         status = status.strip()  # Remove leading/trailing spaces
-        if status not in valid_statuses:
+        if status in valid_statuses:
             self.availability[shift] = status
-
-
 
     def add_hours(self, hours):
         self.hours_worked += hours
 
     def get_contact_info(self):
         return f"{self.name}: {self.phone}, {self.email}"
-
 
 class Shift:
     def __init__(self, shift_time):
@@ -146,3 +144,4 @@ schedule.shifts["2024-11-25"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:
 # Generate and view the schedule
 schedule.assign_shifts()
 schedule.view_schedule()
+
