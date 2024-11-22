@@ -1,48 +1,25 @@
-
-
 import random 
-
-# CAREGIVER class
 
 class Caregiver:
     def __init__(self, name, phone, email, pay_rate=20):
-
-#Insert Caregiver Class
-class Caregiver:
-    def __init__(self, name, phone, email, pay_rate):
-
         self.name = name
         self.phone = phone
         self.email = email
         self.pay_rate = pay_rate
         self.hours_worked = 0
-
         self.availability = {}  # Format: {"7:00 AM - 1:00 PM": "available"}
-
-        self.availability = {}
-
 
     def update_availability(self, shift, status):
         valid_statuses = {"preferred", "available", "unavailable"}
         status = status.strip()  # Remove leading/trailing spaces
-
         if status in valid_statuses:
             self.availability[shift] = status
-
-        if status not in valid_statuses:
-        self.availability = {}  # Format: {"7:00 AM - 1:00 PM": "available"}
-
-    def update_availability(self, shift, status):
-        self.availability[shift] = status
 
     def add_hours(self, hours):
         self.hours_worked += hours
 
     def get_contact_info(self):
         return f"{self.name}: {self.phone}, {self.email}"
-
-    def calculate_pay(self):
-        return self.hours_worked * self.pay_rate
 
 class Shift:
     def __init__(self, shift_time):
@@ -53,10 +30,6 @@ class Shift:
         self.caregiver = caregiver
         caregiver.add_hours(6)  # Each shift is 6 hours
 
-    def clear_assignment(self):
-        self.caregiver = None
-
-
 class Schedule:
     def __init__(self):
         self.shifts = {}  # Format: {"YYYY-MM-DD": [Shift("7:00 AM - 1:00 PM"), ...]}
@@ -64,7 +37,6 @@ class Schedule:
 
     def add_caregiver(self, caregiver):
         self.caregivers.append(caregiver)
-
 
     def assign_shifts(self):
         previous_day_assigned = set()  # Keep track of assigned caregivers from the previous day
@@ -74,7 +46,6 @@ class Schedule:
             assigned_caregivers = set()  # Track assignments for the current day
 
             for shift in shift_list:
-
                 # Prioritize 'preferred' caregivers who haven't been assigned today or the previous day
                 preferred_caregivers = [
                     c for c in self.caregivers
@@ -103,37 +74,12 @@ class Schedule:
 
             previous_day_assigned = assigned_caregivers  # Update for the next day's shifts
 
-                for caregiver in self.caregivers:
-                    if caregiver.availability.get(shift.shift_time) == "preferred":
-                        shift.assign_caregiver(caregiver)
-                        break
-                else:  # If no 'preferred', assign an 'available' caregiver
-                    for caregiver in self.caregivers:
-                        if caregiver.availability.get(shift.shift_time) == "available":
-
-    def generate_schedule(self):
-        # Logic to assign caregivers based on availability and preferences
-        for date, shift_list in self.shifts.items():
-            for shift in shift_list:
-                for caregiver in self.caregivers:
-                    if caregiver.availability.get(shift.shift_time) == 'preferred':
-                        shift.assign_caregiver(caregiver)
-                        break
-                else:
-                    # Assign 'available' caregiver if no 'preferred' found
-                    for caregiver in self.caregivers:
-                        if caregiver.availability.get(shift.shift_time) == 'available':
-
-                            shift.assign_caregiver(caregiver)
-                            break
-
     def view_schedule(self):
         for date, shift_list in self.shifts.items():
             print(f"{date}:")
             for shift in shift_list:
                 caregiver_name = shift.caregiver.name if shift.caregiver else "Unassigned"
                 print(f"  {shift.shift_time}: {caregiver_name}")
-
 
     def convert_to_schedule_format(caregivers):
         formatted = []
@@ -143,9 +89,6 @@ class Schedule:
                 "availability": caregiver.availability  # Ensure day-based data transformation
             })
         return formatted
-
-# Example usage
-schedule = Schedule()
 
 # Caregivers and pay rates
 caregivers = [
@@ -200,17 +143,3 @@ schedule.shifts["2024-11-25"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:
 # Generate and view the schedule
 schedule.assign_shifts()
 schedule.view_schedule()
-   
-
-
-# Example usage:
-schedule = Schedule()
-caregiver1 = Caregiver("Alice", "123-456-7890", "alice@example.com", 20)
-caregiver1.update_availability("7:00 AM - 1:00 PM", "preferred")
-
-schedule.add_caregiver(caregiver1)
-schedule.shifts["2024-11-17"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-
-schedule.generate_schedule()
-schedule.view_schedule()
-
