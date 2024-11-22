@@ -3,7 +3,7 @@
  #make sure you class names match the titles and spelling "Caregiver",etc
 
 from modules.caregiver import Caregiver
-from modules.schedule import Schedule
+from modules.schedule import CareSchedule
 from modules.payroll import Payroll
 
 def main():
