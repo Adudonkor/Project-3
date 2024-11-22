@@ -19,11 +19,8 @@ class Caregiver:
     def add_hours(self, hours):
         self.hours_worked += hours
 
-    def get_contact_info(self):
+    def contact_info(self):
         return f"{self.name}: {self.phone}, {self.email}"
-
-    def calculate_pay(self):
-        return self.hours_worked * self.pay_rate
 
 
 class Shift:
@@ -70,14 +67,14 @@ schedule = Schedule()
 
 # Adding caregivers
 caregivers = [
-    Caregiver("A", "123-456-7890", "A@example.com"),
-    Caregiver("B", "987-654-3210", "B@example.com"),
-    Caregiver("C", "555-123-4567", "C@example.com"),
-    Caregiver("D", "444-222-1111", "D@example.com"),
-    Caregiver("E", "333-777-8888", "E@example.com"),
-    Caregiver("F", "888-999-0000", "F@example.com"),
-    Caregiver("G", "111-222-3333", "G@example.com"),
-    Caregiver("H", "222-333-4444", "H@example.com"),
+    Caregiver("A", "123-456-7890", "A@example.com", 20),
+    Caregiver("B", "634-326-2130", "B@example.com", 20),
+    Caregiver("C", "764-254-4567", "C@example.com", ),
+    Caregiver("D", "856-346-1351", "D@example.com"),
+    Caregiver("E", "756-235-6131", "E@example.com"),
+    Caregiver("F", "555-777-6814", "F@example.com", 20),
+    Caregiver("G", "111-222-3333", "G@example.com", 20),
+    Caregiver("H", "444-555-6666", "H@example.com"),
 ]
 
 # Setting up caregivers' availability, We can change this later I just put random availiabilities down. 
@@ -104,14 +101,16 @@ caregivers[6].update_availability("1:00 PM - 7:00 PM", "preferred")
 
 caregivers[7].update_availability("7:00 AM - 1:00 PM", "unavailable")
 caregivers[7].update_availability("1:00 PM - 7:00 PM", "available")
-# (Add the rest similarly...)
+
 
 # Adding caregivers to the schedule
 for caregiver in caregivers:
     schedule.add_caregiver(caregiver)
 
 # Adding shifts to the schedule
-schedule.shifts["2024-11-21"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
+schedule.shifts["Monday"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
+schedule.shifts["Tuesday"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
+schedule.shifts["Wednesday"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
 
 # Generating and viewing the schedule
 schedule.assign_shifts()
