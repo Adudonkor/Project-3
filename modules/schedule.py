@@ -15,10 +15,10 @@ class CareSchedule(calendar.HTMLCalendar):
         schedule = {day: {"AM": None, "PM": None} for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
 
         for caregiver in self.caregivers:
-            for day, shifts in caregiver["availability"].items():
-                for shift in shifts:
-                    if schedule[day][shift] is None:
-                        schedule[day][shift] = caregiver["name"]
+            for shift_time, status in caregiver.availability.items():
+                day, shift = shift_time.split()  
+                if schedule[day][shift] is None and status == "preferred":
+                    schedule[day][shift] = caregiver.name
 
         return schedule
 
