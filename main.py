@@ -64,9 +64,15 @@ def main():
     schedule.shifts["2024-11-24"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
     schedule.shifts["2024-11-25"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
 
+    for date, shift_list in schedule.shifts.items():
+        for shift in shift_list:
+            for caregiver in caregivers:
+                if caregiver.availability.get(shift.shift_time) in {"preferred", "available"}:
+                    shift.assign_caregiver(caregiver)
+                    break
 
     # Generate and view the schedule
-    schedule.assign_shifts()
+    #schedule.assign_shifts()
     schedule.view_schedule()
 
 
@@ -78,12 +84,6 @@ def main():
     html_calendar = care_schedule.formatmonth()
     with open("schedule_calendar.html", "w") as file:
         file.write(html_calendar)
-
-
-
-    #simulated hours so we can return the payroll report and the calendar 
-
-
 
 
 
