@@ -28,8 +28,9 @@ class Shift:
         self.caregiver = None
 
     def assign_caregiver(self, caregiver):
-        self.caregiver = caregiver
-        caregiver.add_hours(6)  # Each shift is 6 hours
+        if self.caregiver is None: 
+            self.caregiver = caregiver
+            caregiver.add_hours(6)  
 
 class Schedule:
     def __init__(self):
@@ -91,57 +92,3 @@ class Schedule:
             })
         return formatted
 
-# Caregivers and pay rates
-"""caregivers = [
-    Caregiver("Alice", "123-456-7890", "Alice@example.com", 20),
-    Caregiver("Bob", "634-326-2130", "Bob@example.com", 20),
-    Caregiver("Carol", "764-254-4567", "Carol@example.com"),
-    Caregiver("Dom", "856-346-1351", "Dom@example.com", 20),
-    Caregiver("Eve", "756-235-6131", "Eve@example.com"),
-    Caregiver("Finn", "555-777-6814", "Finn@example.com"),
-    Caregiver("Gale", "111-222-3333", "Gale@example.com"),
-    Caregiver("Holly", "444-555-6666", "Holly@example.com", 20),
-]
-
-# Setting up caregivers' availability
-caregivers[0].update_availability("7:00 AM - 1:00 PM", "preferred")
-caregivers[0].update_availability("1:00 PM - 7:00 PM", "available")
-
-caregivers[1].update_availability("7:00 AM - 1:00 PM", "available")
-caregivers[1].update_availability("1:00 PM - 7:00 PM", "unavailable")
-
-caregivers[2].update_availability("7:00 AM - 1:00 PM", "unavailable")
-caregivers[2].update_availability("1:00 PM - 7:00 PM", "preferred")
-
-caregivers[3].update_availability("7:00 AM - 1:00 PM", "unavailable")
-caregivers[3].update_availability("1:00 PM - 7:00 PM", "available")
-
-caregivers[4].update_availability("7:00 AM - 1:00 PM", "available")
-caregivers[4].update_availability("1:00 PM - 7:00 PM", "unavailable")
-
-caregivers[5].update_availability("7:00 AM - 1:00 PM", "unavailable")
-caregivers[5].update_availability("1:00 PM - 7:00 PM", "available")
-
-caregivers[6].update_availability("7:00 AM - 1:00 PM", "preferred")
-caregivers[6].update_availability("1:00 PM - 7:00 PM", "unavailable")
-
-caregivers[7].update_availability("7:00 AM - 1:00 PM", "available")
-caregivers[7].update_availability("1:00 PM - 7:00 PM", "available")
-
-# Add caregivers to the schedule
-schedule = Schedule()
-for caregiver in caregivers:
-    schedule.add_caregiver(caregiver)
-
-# Add shifts to the availability schedule
-schedule.shifts["2024-11-21"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-schedule.shifts["2024-11-22"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-schedule.shifts["2024-11-23"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-schedule.shifts["2024-11-24"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-schedule.shifts["2024-11-25"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-
-
-# Generate and view the schedule
-schedule.assign_shifts()
-schedule.view_schedule()
-"""

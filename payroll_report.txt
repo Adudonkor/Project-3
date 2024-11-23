@@ -2,44 +2,44 @@ Payroll Report
 ==============
 
 Caregiver: Mark
-  Hours Worked: 0 hrs
+  Hours Worked: 12 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $240.00
 
 Caregiver: Ben
-  Hours Worked: 0 hrs
+  Hours Worked: 12 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $240.00
 
 Caregiver: Clara
-  Hours Worked: 0 hrs
+  Hours Worked: 6 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $120.00
 
 Caregiver: Tawi
-  Hours Worked: 0 hrs
+  Hours Worked: 6 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $120.00
 
 Caregiver: Dumpi
-  Hours Worked: 0 hrs
+  Hours Worked: 12 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $240.00
 
 Caregiver: Shay
-  Hours Worked: 0 hrs
+  Hours Worked: 6 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $120.00
 
 Caregiver: Ron
-  Hours Worked: 0 hrs
+  Hours Worked: 6 hrs
   Pay Rate: $20/hr
-  Gross Pay: $0.00
+  Gross Pay: $120.00
 
 Caregiver: Wendy
   Hours Worked: 0 hrs
   Pay Rate: $20/hr
   Gross Pay: $0.00
 
-Total Hours Worked: 0 hrs
-Total Gross Pay: $0.00
+Total Hours Worked: 60 hrs
+Total Gross Pay: $1200.00

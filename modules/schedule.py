@@ -48,37 +48,3 @@ class CareSchedule(calendar.HTMLCalendar):
             html.append(self.formatweek(week))
         html.append('</table>')
         return ''.join(html)
-"""
-caregivers = [
-    {
-        "name": "Alice",
-        "availability": {
-            "Monday": ["AM", "PM"],
-            "Wednesday": ["AM"],
-            "Friday": ["PM"]
-        }
-    },
-    {
-        "name": "Bob",
-        "availability": {
-            "Tuesday": ["AM"],
-            "Wednesday": ["PM"],
-            "Thursday": ["AM", "PM"]
-        }
-    },
-    {
-        "name": "Carol",
-        "availability": {
-            "Monday": ["PM"],
-            "Thursday": ["AM"],
-            "Saturday": ["AM", "PM"]
-        }
-    }
-]
-
-care_schedule = CareSchedule(caregivers, 2024, 11)
-
-html_calendar = care_schedule.formatmonth()
-with open("schedule_calendar.html", "w") as file:
-    file.write(html_calendar)
-"""

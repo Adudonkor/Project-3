@@ -9,11 +9,11 @@ def main():
     caregivers = [
         Caregiver("Mark", "123-456-7890", "Mark@example.com", 20),
         Caregiver("Ben", "634-326-2130", "Ben@example.com", 20),
-        Caregiver("Clara", "764-254-4567", "Clara@example.com"),
+        Caregiver("Clara", "764-254-4567", "Clara@example.com", 20),
         Caregiver("Tawi", "856-346-1351", "Tawi@example.com", 20),
-        Caregiver("Dumpi", "756-235-6131", "Dumpi@example.com"),
-        Caregiver("Shay", "555-777-6814", "Shay@example.com"),
-        Caregiver("Ron", "111-222-3333", "Ron@example.com"),
+        Caregiver("Dumpi", "756-235-6131", "Dumpi@example.com", 20),
+        Caregiver("Shay", "555-777-6814", "Shay@example.com", 20),
+        Caregiver("Ron", "111-222-3333", "Ron@example.com", 20),
         Caregiver("Wendy", "444-555-6666", "Wendy@example.com", 20),
     ]
 
@@ -58,24 +58,23 @@ def main():
         schedule.add_caregiver(caregiver)
 
     # Add shifts to the availability schedule
-    schedule.shifts["2024-11-21"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-    schedule.shifts["2024-11-22"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-    schedule.shifts["2024-11-23"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-    schedule.shifts["2024-11-24"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
-    schedule.shifts["2024-11-25"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:00 PM")]
+    # Update shifts to match availability keys
+    schedule.shifts["2024-11-21"] = [Shift("Thursday AM"), Shift("Thursday PM")]
+    schedule.shifts["2024-11-22"] = [Shift("Friday AM"), Shift("Friday PM")]
+    schedule.shifts["2024-11-23"] = [Shift("Saturday AM"), Shift("Saturday PM")]
+    schedule.shifts["2024-11-24"] = [Shift("Sunday AM"), Shift("Sunday PM")]
+    schedule.shifts["2024-11-25"] = [Shift("Monday AM"), Shift("Monday PM")]
+
 
     for date, shift_list in schedule.shifts.items():
-        for shift in shift_list:
-            for caregiver in caregivers:
-                if caregiver.availability.get(shift.shift_time) in {"preferred", "available"}:
-                    shift.assign_caregiver(caregiver)
-                    break
+       for shift in shift_list:
+           for caregiver in caregivers:
+               if caregiver.availability.get(shift.shift_time) in {"preferred", "available"}:
+                   shift.assign_caregiver(caregiver)
+                   break
 
     # Generate and view the schedule
-    #schedule.assign_shifts()
     schedule.view_schedule()
-
-
 
     #carescedule/html calendar 
 
@@ -84,7 +83,6 @@ def main():
     html_calendar = care_schedule.formatmonth()
     with open("schedule_calendar.html", "w") as file:
         file.write(html_calendar)
-
 
 
     #payroll and report
