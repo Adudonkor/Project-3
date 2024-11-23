@@ -1,37 +1,42 @@
 #Insert Payroll class
 class Payroll:
     def __init__(self, caregivers):
+        #this initializes the system using caregiver objects
         self.caregivers = caregivers
 
-    def calculate_weekly_pay(self):
-        #THis calculate the weekly  pay for the caregiver and returns a dictionary with their names as keys and pay details as values
-        payroll_report = {}
+        #payroll report code and pay calculation
+
+    def generate_report(self):
+       
+        report = "Payroll Report\n"
+        report += "==============\n\n"
+
+        total_hours = 0
+        total_gross_pay = 0
+
         for caregiver in self.caregivers:
-            gross_pay = caregiver.hours_worked * caregiver.pay_rate
-            payroll_report[caregiver.name] = {
-                "hours_worked": caregiver.hours_worked,
-                "pay_rate": caregiver.pay_rate,
-                "gross_pay": gross_pay
-            }
-        return payroll_report
+            hours_worked = caregiver.hours_worked
+            pay_rate = caregiver.pay_rate
+            gross_pay = hours_worked * pay_rate
 
-    def calculate_monthly_totals(self):
-        total_hours = sum(c.hours_worked for c in self.caregivers)
-        total_gross_pay = sum(c.hours_worked * c.pay_rate for c in self.caregivers)
-        return {"total_hours": total_hours, "total_gross_pay": total_gross_pay}
+            report += f"Caregiver: {caregiver.name}\n"
+            report += f"  Hours Worked: {hours_worked} hrs\n"
+            report += f"  Pay Rate: ${pay_rate}/hr\n"
+            report += f"  Gross Pay: ${gross_pay:.2f}\n\n"
 
-    def print_payroll(self):
-      #this prints the payroll report
-        payroll_report = self.calculate_weekly_pay()
-        monthly_totals = self.calculate_monthly_totals()
+            total_hours += hours_worked
+            total_gross_pay += gross_pay
 
-        print("Weekly Payroll Report:")
-        for caregiver_name, details in payroll_report.items():
-            print(f"{caregiver_name}:")
-            print(f"  Hours Worked: {details['hours_worked']} hrs")
-            print(f"  Pay Rate: ${details['pay_rate']}/hr")
-            print(f"  Gross Pay: ${details['gross_pay']:.2f}")
+        report += "Total Hours Worked: {} hrs\n".format(total_hours)
+        report += "Total Gross Pay: ${:.2f}\n".format(total_gross_pay)
 
-        print("\nMonthly Totals:")
-        print(f"  Total Hours Worked: {monthly_totals['total_hours']} hrs")
-        print(f"  Total Gross Pay: ${monthly_totals['total_gross_pay']:.2f}")
+        return report
+
+    def save_to_file(self, filename="payroll_report.txt"):
+      #this saves the payroll report as a text file
+        report = self.generate_report()
+        with open(filename, "w") as file:
+            file.write(report)
+        print(f"Payroll report saved to {filename}")
+
+
