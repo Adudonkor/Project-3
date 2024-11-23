@@ -48,7 +48,7 @@ class CareSchedule(calendar.HTMLCalendar):
             html.append(self.formatweek(week))
         html.append('</table>')
         return ''.join(html)
-
+"""
 caregivers = [
     {
         "name": "Alice",
@@ -81,3 +81,4 @@ care_schedule = CareSchedule(caregivers, 2024, 11)
 html_calendar = care_schedule.formatmonth()
 with open("schedule_calendar.html", "w") as file:
     file.write(html_calendar)
+"""
