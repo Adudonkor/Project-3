@@ -10,5 +10,5 @@ def main():
     # Placeholder for project components
    
 
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
