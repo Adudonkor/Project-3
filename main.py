@@ -12,14 +12,18 @@ def main():
 
     #carescedule/html calendar 
 
+    care_schedule = CareSchedule(caregivers, 2024, 11)
+
+    html_calendar = care_schedule.formatmonth()
+    with open("schedule_calendar.html", "w") as file:
+        file.write(html_calendar)
 
 
 
+    #simulated hours so we can return the payroll report and the calendar 
 
-    #We need to simulate hours so we can return the payroll report and the calendar 
 
 
-    
 
 
     #payroll and report
