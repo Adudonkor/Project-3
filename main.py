@@ -18,29 +18,29 @@ def main():
     ]
 
 # Setting up caregivers' availability
-    caregivers[0].update_availability("7:00 AM - 1:00 PM", "preferred")
-    caregivers[0].update_availability("1:00 PM - 7:00 PM", "available")
+    caregivers[0].update_availability("Monday AM", "preferred")
+    caregivers[0].update_availability("Monday PM", "available")
 
-    caregivers[1].update_availability("7:00 AM - 1:00 PM", "available")
-    caregivers[1].update_availability("1:00 PM - 7:00 PM", "unavailable")
+    caregivers[1].update_availability("Thursday AM", "available")
+    caregivers[1].update_availability("Tuesday AM", "unavailable")
 
-    caregivers[2].update_availability("7:00 AM - 1:00 PM", "unavailable")
-    caregivers[2].update_availability("1:00 PM - 7:00 PM", "preferred")
+    caregivers[2].update_availability("Tuesday PM", "unavailable")
+    caregivers[2].update_availability("Thursday PM", "preferred")
 
-    caregivers[3].update_availability("7:00 AM - 1:00 PM", "unavailable")
-    caregivers[3].update_availability("1:00 PM - 7:00 PM", "available")
+    caregivers[3].update_availability("Wednesday AM", "unavailable")
+    caregivers[3].update_availability("Wednesday PM", "available")
 
-    caregivers[4].update_availability("7:00 AM - 1:00 PM", "available")
-    caregivers[4].update_availability("1:00 PM - 7:00 PM", "unavailable")
+    caregivers[4].update_availability("Tuesday AM", "available")
+    caregivers[4].update_availability("Monday PM", "unavailable")
 
-    caregivers[5].update_availability("7:00 AM - 1:00 PM", "unavailable")
-    caregivers[5].update_availability("1:00 PM - 7:00 PM", "available")
+    caregivers[5].update_availability("Friday AM", "unavailable")
+    caregivers[5].update_availability("Friday PM", "available")
 
-    caregivers[6].update_availability("7:00 AM - 1:00 PM", "preferred")
-    caregivers[6].update_availability("1:00 PM - 7:00 PM", "unavailable")
+    caregivers[6].update_availability("Saturday PM", "preferred")
+    caregivers[6].update_availability("Sunday PM", "unavailable")
 
-    caregivers[7].update_availability("7:00 AM - 1:00 PM", "available")
-    caregivers[7].update_availability("1:00 PM - 7:00 PM", "available")
+    caregivers[7].update_availability("Friday AM", "available")
+    caregivers[7].update_availability("Saturday AM", "available")
 
 # Add caregivers to the schedule
     schedule = Schedule()
