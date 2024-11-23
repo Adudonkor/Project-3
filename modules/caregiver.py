@@ -92,7 +92,7 @@ class Schedule:
         return formatted
 
 # Caregivers and pay rates
-caregivers = [
+"""caregivers = [
     Caregiver("Alice", "123-456-7890", "Alice@example.com", 20),
     Caregiver("Bob", "634-326-2130", "Bob@example.com", 20),
     Caregiver("Carol", "764-254-4567", "Carol@example.com"),
@@ -144,4 +144,4 @@ schedule.shifts["2024-11-25"] = [Shift("7:00 AM - 1:00 PM"), Shift("1:00 PM - 7:
 # Generate and view the schedule
 schedule.assign_shifts()
 schedule.view_schedule()
-
+"""
