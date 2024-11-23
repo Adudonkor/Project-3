@@ -1,6 +1,6 @@
 
 
-from modules.caregiver import Caregiver
+from modules.caregiver import Caregiver, Schedule, Shift
 from modules.schedule import CareSchedule
 from modules.payroll import Payroll
 
