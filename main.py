@@ -92,3 +92,50 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+<html>
+<head>
+<style>
+table {border-collapse: collapse; width: 100%;}
+th, td {border: 1px solid black; padding: 10px; text-align: center;}
+.noday {background-color: #f0f0f0;}
+</style>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="7">November 2024</th>
+    </tr>
+    <tr>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+    </tr>
+    <tr>
+        <td class="noday">&nbsp;</td>
+        <td class="noday">&nbsp;</td>
+        <td><strong>1</strong><br>AM: Alice<br>PM: No Caregiver</td>
+        <td><strong>2</strong><br>AM: No Caregiver<br>PM: No Caregiver</td>
+        <td><strong>3</strong><br>AM: No Caregiver<br>PM: Carol</td>
+        <td><strong>4</strong><br>AM: Carol<br>PM: Carol</td>
+        <td><strong>5</strong><br>AM: No Caregiver<br>PM: No Caregiver</td>
+    </tr>
+    <tr>
+        <td><strong>6</strong><br>AM: Alice<br>PM: Carol</td>
+        <td><strong>7</strong><br>AM: Bob<br>PM: Bob</td>
+        <td><strong>8</strong><br>AM: No Caregiver<br>PM: Alice</td>
+        <td><strong>9</strong><br>AM: Bob<br>PM: Carol</td>
+        <td><strong>10</strong><br>AM: Alice<br>PM: Bob</td>
+        <td><strong>11</strong><br>AM: Carol<br>PM: Carol</td>
+        <td><strong>12</strong><br>AM: No Caregiver<br>PM: No Caregiver</td>
+    </tr>
+</table>
+</body>
+</html>
+
